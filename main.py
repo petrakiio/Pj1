@@ -34,7 +34,7 @@ def cadastrar_usuario(nome, gmail, senha_limpa):
         cursor = conn.db.cursor()
         table = os.getenv("DB_TABLE")
         
-        sql = f"INSERT INTO {table} (nome, gmail, senha) VALUES (%s, %s, %s)"
+        sql = f"INSERT INTO {table}(nome, gmail, senha) VALUES (%s, %s, %s)"
         cursor.execute(sql, (nome, gmail, senha_hash.decode('utf-8')))
         conn.db.commit()
         return True
